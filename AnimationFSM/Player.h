@@ -4,6 +4,7 @@
 #include <Input.h>
 #include <Animation.h>
 #include <AnimatedSprite.h>
+#include <SFML/Graphics.hpp>
 
 class Player
 {
@@ -16,8 +17,10 @@ public:
 	Player(const AnimatedSprite&);
 	~Player();
 	AnimatedSprite& getAnimatedSprite();
-	void handleInput(Input);
+	void handleInput(sf::RenderWindow&);
 	void update();
+
+	void setStateSprites();
 };
 
 #endif // !PLAYER_H

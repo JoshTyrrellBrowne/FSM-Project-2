@@ -20,53 +20,64 @@ int main()
 	}
 
 	// Setup Players Default Animated Sprite
-	AnimatedSprite animated_sprite(texture);
-	animated_sprite.addFrame(sf::IntRect(3, 3, 84, 84));
-	animated_sprite.addFrame(sf::IntRect(88, 3, 84, 84));
-	animated_sprite.addFrame(sf::IntRect(173, 3, 84, 84));
-	animated_sprite.addFrame(sf::IntRect(258, 3, 84, 84));
-	animated_sprite.addFrame(sf::IntRect(343, 3, 84, 84));
-	animated_sprite.addFrame(sf::IntRect(428, 3, 84, 84));
+	AnimatedSprite animated_spriteIdle(texture);
+	AnimatedSprite animated_spriteJumping(texture);
+	//IDLE
+	animated_spriteIdle.addFrame(sf::IntRect(3, 3, 84, 84));
+	animated_spriteIdle.addFrame(sf::IntRect(88, 3, 84, 84));
+	animated_spriteIdle.addFrame(sf::IntRect(173, 3, 84, 84));
+	animated_spriteIdle.addFrame(sf::IntRect(258, 3, 84, 84));
+	animated_spriteIdle.addFrame(sf::IntRect(343, 3, 84, 84));
+	animated_spriteIdle.addFrame(sf::IntRect(428, 3, 84, 84));
+	//JUMPING
+	animated_spriteJumping.addFrame(sf::IntRect(3, 88, 84, 84));
+	animated_spriteJumping.addFrame(sf::IntRect(88, 88, 84, 84));
+	animated_spriteJumping.addFrame(sf::IntRect(173, 88, 84, 84));
+	animated_spriteJumping.addFrame(sf::IntRect(258, 88, 84, 84));
+	animated_spriteJumping.addFrame(sf::IntRect(343, 88, 84, 84));
+	animated_spriteJumping.addFrame(sf::IntRect(428, 88, 84, 84));
+
 
 	// Setup the Player
-	Player player(animated_sprite);
+	Player player(animated_spriteIdle);
 	Input input;
 	
 	// Start the game loop
 	while (window.isOpen())
 	{
-		// Process events
-		sf::Event event;
-		while (window.pollEvent(event))
-		{
-			switch (event.type)
-			{
-			case sf::Event::Closed:
-				// Close window : exit
-				window.close();
-				break;
-			case sf::Event::KeyPressed:
-				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
-				{
-					input.setCurrent(Input::Action::LEFT);
-				}
-				else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
-				{
-					input.setCurrent(Input::Action::RIGHT);
-				}
-				else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
-				{
-					input.setCurrent(Input::Action::UP);
-				}
-				break;
-			default:
-				input.setCurrent(Input::Action::IDLE);
-				break;
-			}
-		}
+		//// Process events
+		//sf::Event event;
+		//while (window.pollEvent(event))
+		//{
+		//	switch (event.type)
+		//	{
+		//	case sf::Event::Closed:
+		//		// Close window : exit
+		//		window.close();
+		//		break;
+		//	case sf::Event::KeyPressed:
+		//		if (sf::Keyboard::isKeyPressed(sf::Keyboard::I))
+		//		{
+		//			//player.
+		//			input.setCurrent(Input::Action::LEFT);
+		//		}
+		//		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+		//		{
+		//			input.setCurrent(Input::Action::RIGHT);
+		//		}
+		//		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+		//		{
+		//			input.setCurrent(Input::Action::UP);
+		//		}
+		//		break;
+		//	default:
+		//		input.setCurrent(Input::Action::IDLE);
+		//		break;
+		//	}
+		//}
 
 		// Handle input to Player
-		player.handleInput(input);
+		player.handleInput(window);
 
 		// Update the Player
 		player.update();

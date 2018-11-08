@@ -5,6 +5,8 @@
 #include <SFML\System\Clock.hpp>
 #include <vector>
 #include <Debug.h>
+#include "Animation.h"
+#include "State.h"
 
 using namespace std;
 using namespace sf;
@@ -22,7 +24,7 @@ public:
 	const IntRect& getFrame(int);
 	void addFrame(IntRect&);
 	const int getCurrentFrame();
-	void update();
+	void update();	// index to show which state
 	
 private:
 	Clock m_clock;
