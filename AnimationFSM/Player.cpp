@@ -77,6 +77,11 @@ void Player::handleInput(sf::RenderWindow& t_window)
 				m_animation.jumping();
 				//input.setCurrent(Input::Action::UP);
 			}
+			else if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
+			{
+				m_animation.shoveling();
+				//input.setCurrent(Input::Action::UP);
+			}
 			break;
 		default:
 			//input.setCurrent(Input::Action::IDLE);
@@ -92,7 +97,9 @@ void Player::update()
 	m_animated_sprite.update();
 }
 
-void Player::setStateSprites()
+void Player::setStateSprites(const AnimatedSprite& t_animatedSprite)
 {
-	//m_animated_sprite
+	//m_animation.setCurrent(new Idle());
+	//m_animation.setPrevious(new Idle());
+	m_animated_sprite = t_animatedSprite;
 }

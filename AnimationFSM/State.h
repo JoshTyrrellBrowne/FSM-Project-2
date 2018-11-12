@@ -30,6 +30,11 @@ public:
 		DEBUG_MSG("State::Climbing");
 		std::cout << "State::Climbing" << std::endl;
 	}
+	virtual void shoveling(Animation* a)
+	{
+		DEBUG_MSG("State::Shoveling");
+		std::cout << "State::Shoveling" << std::endl;
+	}
 };
 
 #endif // ! ANIMATION_H

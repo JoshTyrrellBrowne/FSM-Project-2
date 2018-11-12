@@ -20,7 +20,7 @@ public:
 	void handleInput(sf::RenderWindow&);
 	void update();
 
-	void setStateSprites();
+	void setStateSprites(const AnimatedSprite&);
 };
 
 #endif // !PLAYER_H

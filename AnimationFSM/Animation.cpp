@@ -42,3 +42,8 @@ void Animation::climbing()
 {
 	m_current->climbing(this);
 }
+
+void Animation::shoveling()
+{
+	m_current->shoveling(this);
+}

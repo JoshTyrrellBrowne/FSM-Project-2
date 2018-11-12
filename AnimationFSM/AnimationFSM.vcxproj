@@ -27,6 +27,7 @@
     <ClInclude Include="Input.h" />
     <ClInclude Include="Jumping.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="Shoveling.h" />
     <ClInclude Include="State.h" />
   </ItemGroup>
   <ItemGroup>
@@ -38,6 +39,7 @@
     <ClCompile Include="Jumping.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Shoveling.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\README.md" />

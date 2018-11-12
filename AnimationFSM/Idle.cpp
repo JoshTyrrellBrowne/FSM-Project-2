@@ -1,6 +1,8 @@
 #include <Idle.h>
 #include <Jumping.h>
 #include <Climbing.h>
+#include <Shoveling.h>
+
 
 #include <string>
 
@@ -17,5 +19,12 @@ void Idle::climbing(Animation* a)
 {
 	std::cout << "Idle -> Climbing" << std::endl;
 	a->setCurrent(new Climbing());
+	delete this;
+}
+
+void Idle::shoveling(Animation * a)
+{
+	std::cout << "Idle -> Shoveling" << std::endl;
+	a->setCurrent(new Shoveling());
 	delete this;
 }
